@@ -1,77 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="utf-8">
-    <title>Like with Image</title>
-    
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        /* 1. تنسيق الزر الأساسي (أخضر بدلاً من الأزرق) */
-        #likeBtn {
-    background-color: #007bff; /* هذا كود اللون الأزرق */
-    color: white;
-            font-size: 18px;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            transition: 0.3s;
-        }
-
-        #likeBtn:active {
-            transform: scale(0.95);
-        }
-
-        /* 2. تغيير لون الزر بعد الضغط (أحمر فاتح شوي بدلاً من الرمادي) */
-        #likeBtn:disabled {
-            background-color: #ff7675; /* أحمر فاتح هادئ وأنيق */
-            color: white;
-            cursor: not-allowed;
-            box-shadow: none;
-        }
-
-        /* 3. تنسيق الصورة وتكبير حجمها */
-        #myImage {
-            width: 650px;              /* عرض مناسب وواضح جداً */
-            margin-top: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            display: none;             /* مخفية في البداية */
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>صفحة التجربة الأولى</title>
+  <style>
+    /* تنسيقات بسيطة لترتيب الشكل وحالات الروابط */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    /* حالات الرابط بالترتيب الصحيح */
+    a:link { color: blue; font-weight: bold; text-decoration: none; }
+    a:visited { color: purple; }
+    a:hover { color: red; text-decoration: underline; }
+    a:focus { color: green; }
+    a:active { color: orange; }
+  </style>
 </head>
 <body>
 
-    <h1>Hello!</h1>
+  <main class="card">
+    <h1 id="main-title">مرحباً بك في أول صفحة ويب لي! 🚀</h1>
+    
+    <p>هذه الصفحة تجمع كل ما تعلمناه في دروس <strong>HTML</strong> الأساسية.</p>
 
-    <button id="likeBtn">Click here</button>
+    <figure>
+      <img src="./cat.jpg.webp" alt="صورة لازانيا لذيذة" width="100%" />
+      <figcaption>القطط <em>تحب</em> اللازانيا كثيراً!</figcaption>
+    </figure>
 
-    <br>
+    <section>
+      <h2>أشياء تعلمتها اليوم:</h2>
+      <ul>
+        <li>الهيكل الأساسي لصفحة الويب</li>
+        <li>الفرق بين <code>id</code> و <code>class</code></li>
+        <li>الأحرف الخاصة مثل: &lt;p&gt; و &copy;</li>
+      </ul>
+    </section>
 
-    <!-- هنا تم وضع رابط صورة وائل كفوري الخارق الذي أرسلتيه -->
-    <img id="myImage" src="https://platform.barcablaugranes.com/wp-content/uploads/sites/21/chorus/uploads/chorus_asset/file/25819505/2191173318.jpg?quality=90&strip=all&crop=0%2C0%2C100%2C99.987501562305&w=2400" alt="Wael Kfoury">
+    <hr />
 
-    <script>
-      const btn = document.getElementById('likeBtn');
-const img = document.getElementById('myImage');
-
-btn.addEventListener('click', function() {
-  // يغير النص إلى بيدري فقط بدون أي أرقام
-  btn.innerText = 'Pedri'; 
-  
-  // إظهار الصورة فوراً
-  img.style.display = 'inline-block';
-  
-  // تعطيل الزر ليتحول للون الأحمر الفاتح
-  btn.disabled = true; 
-      });
-    </script>
+    <footer>
+      <p>جرب تمرير الماوس أو الضغط المطوّل على هذا الرابط:</p>
+      <a href="https://freecodecamp.org" target="_blank">زيارة موقع freeCodeCamp</a>
+      <br><br>
+      <button onclick="alert('أحسنت! الكود يعمل بنجاح 🎉')">اضغط هنا للتجربة</button>
+    </footer>
+  </main>
 
 </body>
 </html>

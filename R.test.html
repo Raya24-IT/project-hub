@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Page - RAYA</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #b8d2e6;
+            text-align: center;
+            padding: 30px;
+        }
+
+        #code-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .profile-card {
+            background-color: rgba(255, 255, 255, 0.841);
+            max-width: 450px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #user-name {
+            color: #468dd0;
+            margin-bottom: 5px;
+        }
+
+        img {
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        ul {
+            text-align: left;
+            background-color: #f8f9fa;
+            padding: 15px 35px;
+            border-radius: 8px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        a:link { background-color: #3498db; color: white; }
+        a:visited { background-color: #44ad6a; color: white; }
+        a:hover { background-color: #e74c3c; color: white; }
+        a:focus { outline: 3px solid #d9ffe9; }
+        a:active { background-color: #f39c12; color: black; }
+    </style>
+</head>
+<body>
+
+    <canvas id="code-bg"></canvas>
+
+    <main class="profile-card">
+        <h1 id="user-name">RAYA</h1>
+        <p>Hi, I am passionately <strong>learning web development</strong>! 💻</p>
+        
+        <img src="./Female coder.png" alt="female coder" width="300">
+
+        <section>
+            <h2>My HTML Skills So Far:</h2>
+            <ul>
+                <li>Building basic page structure</li>
+                <li>Adding images and links professionally</li>
+                <li>Differentiating between <code>id</code> and <code>class</code></li>
+            </ul>
+        </section>
+
+        <a href="https://freecodecamp.org" target="_blank">Visit freeCodeCamp</a>
+        
+        <footer>
+            <p><small>Made with love by RAYA &copy; 2026</small></p>
+        </footer>
+    </main>
+
+    <script>
+        const canvas = document.getElementById('code-bg');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const symbols = ['<HTML>', '{CSS}', '0', '1', '</>', '#id', '.class', '<div>', 'JS'];
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+            ctx.fillStyle = 'rgba(184, 210, 230, 0.15)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#3498db';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = symbols[Math.floor(Math.random() * symbols.length)];
+                ctx.fillText(text, i * fontSize * 3, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 50);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+
+</body>
+</html>
